@@ -20,8 +20,8 @@ fn main() {
 
     loop {  // REPL
         // note two unused results, following along
-        io::stdout().flush(); // guarantee prompt prints before wait for input
-        io::stdin().read_line(&mut blob);
+        io::stdout().flush().ok(); // guarantee prompt prints before wait for input
+        io::stdin().read_line(&mut blob).ok();
         let reply  = blob.trim();
         println!("\tNo, you're a {}", reply);
     }
